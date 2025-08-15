@@ -8,8 +8,8 @@ const App = () => {
     <Router>
       <Routes>
         <Route element={<MainLayout />}>
-          <Route path="/" element={<Overview />} />
-          <Route path="/topics" element={<Topics />} />
+          <Route path="/wst/" element={<Overview />} />
+          <Route path="/wst/topics" element={<Topics />} />
         </Route>
       </Routes>
     </Router>

@@ -2,9 +2,9 @@ import { Link, useLocation } from "react-router-dom";
 import ScrollUp from "./ScrollUp";
 
 const links = [
-  { label: "Overview", path: "/" },
-  { label: "Topics", path: "/topics" },
-  { label: "About us", path: "/about" },
+  { label: "Overview", path: "/wst/" },
+  { label: "Topics", path: "/wst/topics" },
+  { label: "About us", path: "/wst/about" },
 ];
 
 const NavBar = () => {
