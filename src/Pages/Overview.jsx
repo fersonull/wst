@@ -1,4 +1,5 @@
 import OverviewHead from "../Components/Overview/OverviewHead";
+import Objectives from "../Components/Overview/Objectives";
 
 const Overview = () => {
   return (
@@ -6,6 +7,8 @@ const Overview = () => {
       <div className="mb-8 z-20">
         <OverviewHead />
       </div>
+
+      <Objectives />
     </div>
   );
 };

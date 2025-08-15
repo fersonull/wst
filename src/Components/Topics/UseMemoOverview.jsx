@@ -30,6 +30,8 @@ const UseMemoOverview = () => {
         <p className="subtitle">Here’s a basic example:</p>
         <CodeBlock
           code={dedent`
+              const [number, setNumber] = useState(0);
+
               // Function that calculates the square of a given number
               const round = (num) => {
                 return num * num;

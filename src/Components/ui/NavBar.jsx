@@ -4,7 +4,7 @@ import ScrollUp from "./ScrollUp";
 const links = [
   { label: "Overview", path: "/" },
   { label: "Topics", path: "/topics" },
-  { label: "About us", path: "/about" },
+  { label: "About us", path: "/about-us" },
 ];
 
 const NavBar = () => {
