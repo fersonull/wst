@@ -30,21 +30,66 @@ const UseMemoOverview = () => {
         <p className="subtitle">Here’s a basic example:</p>
         <CodeBlock
           code={dedent`
-              const [number, setNumber] = useState(0);
+              import { useMemo, useState } from "react";
 
-              // Function that calculates the square of a given number
-              const round = (num) => {
-                return num * num;
-              };
+              export default function App() {
+                // State to store the number input
+                const [number, setNumber] = useState(0);
+                // State to store the name input
+                const [name, setName] = useState("");
 
-              // Memoize the computed value so the calculation only runs 
-              // when the dependency (in this case, 'number') changes
-              const roundedNumber = useMemo(() => {
-                // Call the 'round' function with the current value of 'number'
-                return round(number);
-              }, [number]);
+                // Example useMemo: this will only run when "name" changes
+                // Right now, it just logs the name (no return value used)
+                const newName = useMemo(() => {
+                  console.log("name: ", name);
+                }, [name]);
+
+                // A function to square a number (simulating an "expensive" calculation)
+                function squared(num) {
+                  console.log("calculating...");
+                  return num * num;
+                }
+
+                // useMemo stores the squared result of "number"
+                // It will only re-calculate when "number" changes
+                const squaredNumber = useMemo(() => {
+                  return squared(number);
+                }, [number]);
+
+                return (
+                  <div>
+                    {/* Input for name (updates state when typing) */}
+                    <input
+                      type="text"
+                      placeholder="name"
+                      onChange={(e) => setName(e.target.value)}
+                    />
+
+                    {/* Input for number (updates state when typing) */}
+                    <input
+                      type="number"
+                      placeholder="input number"
+                      onChange={(e) => setNumber(Number(e.target.value))}
+                    />
+
+                    {/* Display the squared number */}
+                    <p>rounded number: {squaredNumber}</p>
+                  </div>
+                );
+              }
             `}
         />
+
+        <p className="subtitle">
+          This code shows how <span className="highlight text-sm">useMemo</span>{" "}
+          can make React apps more efficient. It has two states: one for a name
+          and one for a number. Whenever the name changes, it logs the new name,
+          but only when that state updates. For the number, there’s a function
+          that squares it. Instead of recalculating the square every time the
+          component renders, <span className="highlight text-sm">useMemo</span>{" "}
+          makes sure the calculation only happens when the number changes. This
+          way, React avoids doing extra work and the app runs smoother.
+        </p>
       </div>
     </div>
   );
